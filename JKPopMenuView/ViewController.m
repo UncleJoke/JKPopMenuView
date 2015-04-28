@@ -43,7 +43,7 @@
 #pragma mark App JKPopMenuViewSelectDelegate
 - (void)popMenuViewSelectIndex:(NSInteger)index
 {
-    
+    NSLog(@"%s",__func__);
 }
 
 @end

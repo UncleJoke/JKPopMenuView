@@ -1,9 +1,9 @@
 //
 //  JKPopMenuItem.m
-//  TumblrLikeMenu
+//  
 //
 //  Created by Bingjie on 14/12/15.
-//  Copyright (c) 2014年 Tu You. All rights reserved.
+//  Copyright (c) 2015年 Bingjie. All rights reserved.
 //
 
 #import "JKPopMenuItem.h"

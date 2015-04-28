@@ -1,9 +1,9 @@
 //
 //  JKPopMenuView.m
-//  TumblrLikeMenu
+//  
 //
 //  Created by Bingjie on 14/12/15.
-//  Copyright (c) 2014年 Tu You. All rights reserved.
+//  Copyright (c) 2015年 Bingjie. All rights reserved.
 //
 
 #import "JKPopMenuView.h"
@@ -45,11 +45,6 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped:)];
-        [self addGestureRecognizer:tapGestureRecognizer];
-        
-//        self.backgroundColor = [[UIColor grayColor]colorWithAlphaComponent:0.6];
-        
         self.blurBGView = [[FXBlurView alloc] initWithFrame:self.bounds];
         _blurBGView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         _blurBGView.dynamic = YES;
@@ -60,6 +55,10 @@
         maskView.backgroundColor = [RGB_COLOR(210, 210, 210) colorWithAlphaComponent:0.6];
         maskView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         [_blurBGView addSubview:maskView];
+        
+        UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped:)];
+        [_blurBGView addGestureRecognizer:tapGestureRecognizer];
+
         
         _blurBGView.underlyingView = [UIApplication sharedApplication].keyWindow;
     }
@@ -80,6 +79,7 @@
 
 - (void)itemClick:(UIControl*)control
 {
+    [self disappear];
     if ([self.delegate respondsToSelector:@selector(popMenuViewSelectIndex:)]) {
         [self.delegate popMenuViewSelectIndex:control.tag];
     }
